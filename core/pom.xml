@@ -51,6 +51,10 @@
             <artifactId>javax.ws.rs-api</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.wso2.msf4j</groupId>
+            <artifactId>jaxrs-delegates</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-common</artifactId>
         </dependency>
@@ -99,23 +103,16 @@
             <artifactId>org.apache.servicemix.bundles.commons-beanutils</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon.metrics</groupId>
-            <artifactId>org.wso2.carbon.metrics.manager</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.metrics</groupId>
-            <artifactId>org.wso2.carbon.metrics.impl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.metrics</groupId>
-            <artifactId>org.wso2.carbon.metrics.annotation</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.nimbusds</groupId>
             <artifactId>nimbus-jose-jwt</artifactId>
         </dependency>
 
         <!-- Test dependencies -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -298,6 +295,7 @@
         <private.package>org.wso2.msf4j.internal.*,</private.package>
         <export.package>
             !org.wso2.msf4j.internal.*,
+            !org.wso2.msf4j.delegates.*,
             org.wso2.msf4j.*;version="1.0.0",
         </export.package>
         <import.package>
@@ -318,18 +316,11 @@
             org.wso2.carbon.kernel.startupresolver.*;version="${carbon.kernel.version.range}",
             org.wso2.carbon.kernel.utils.*;version="${carbon.kernel.version.range}",
             org.wso2.carbon.transport.http.netty.listener.*;version="${org.wso2.carbon.transport.http.netty.version.range}",
-            org.wso2.carbon.metrics.annotation.*;version="${carbon.metrics.version.range}",
-            org.wso2.carbon.metrics.common.*;version="${carbon.metrics.version.range}",
-            org.wso2.carbon.metrics.manager.*;version="${carbon.metrics.version.range}",
-            org.wso2.carbon.metrics.impl.*;version="${carbon.metrics.version.range}",
-            org.wso2.carbon.databridge.agent.*;version="${carbon.analytics.common.version.range}",
-            org.wso2.carbon.databridge.commons.*;version="${carbon.analytics.common.version.range}"
         </import.package>
         <provide.capability>
             osgi.service;effective:=active;
             objectClass="org.wso2.msf4j.internal.MicroservicesServerSC";
             dependent-component-key="carbon-transport-mgt",
         </provide.capability>
-        <SPI-Provider>javax.ws.rs.ext.RuntimeDelegate</SPI-Provider>
     </properties>
 </project>

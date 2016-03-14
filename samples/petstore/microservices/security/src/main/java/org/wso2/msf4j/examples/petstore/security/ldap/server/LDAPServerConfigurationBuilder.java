@@ -51,8 +51,6 @@ public class LDAPServerConfigurationBuilder {
 
     public static final java.lang.String ATTR_NAME_PROP_NAME = "name";
 
-    private String userMgtXMLFilePath = null;
-
     private InputStream configurationFileStream;
     /*Password to connect with the embedded-ldap server*/
     private String connectionPassword;
@@ -286,9 +284,6 @@ public class LDAPServerConfigurationBuilder {
      *                         &lt;/PartitionAdminGroup&gt;
      */
     private void buildPartitionConfigurations(OMElement documentElement) {
-
-        //read user-mgt.xml
-        //RealmConfiguration realmConfig = getUserManagementXMLElement();
 
         this.partitionConfigurations = new PartitionInfo();
 

@@ -1,4 +1,4 @@
-WSO2 Microservices Framework for Java (MSF4J)
+  WSO2 Microservices Framework for Java (MSF4J)
 ---------------------------------------------------------
 
 WSO2 MSF4J is a lightweight high performance framework for developing & running Java microservices.
@@ -9,7 +9,7 @@ Running & Installation
 -----------------------------
 There are two modes of running WSO2 MSF4J. See the documentation
 for more details.
-http://docs.wso2.com/microservices-framework-for-java/Key+Concepts#KeyConcepts-MSSliteandserverruntime
+http://docs.wso2.com/microservices-framework-for-java/Key+Concepts#KeyConcepts
 
 
 Support

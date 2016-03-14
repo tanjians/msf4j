@@ -189,7 +189,6 @@ public class LDAPUserStoreManager {
         Attribute objClasses = new BasicAttribute("objectClass");
         objClasses.add("top");
         objClasses.add("groupOfNames");
-        //objClasses.add("groupOfForethoughtNames");
 
         // Assign the name and description to the group
         Attribute cn = new BasicAttribute("cn", name);
@@ -292,7 +291,7 @@ public class LDAPUserStoreManager {
         if ((username != null) && (!username.equals(""))) {
             props.put(Context.SECURITY_AUTHENTICATION, "simple");
             props.put(Context.SECURITY_PRINCIPAL, username);
-            props.put(Context.SECURITY_CREDENTIALS, ((password == null) ? "" : password));
+            props.put(Context.SECURITY_CREDENTIALS, (password == null) ? "" : password);
         }
 
         return new InitialDirContext(props);

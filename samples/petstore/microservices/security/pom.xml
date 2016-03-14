@@ -20,9 +20,9 @@
 
     <parent>
         <groupId>org.wso2.msf4j</groupId>
-        <artifactId>msf4j-serverless-parent</artifactId>
+        <artifactId>msf4j-service</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../../../../poms/msf4j-serverless-parent/pom.xml</relativePath>
+        <relativePath>../../../../poms/msf4j-service/pom.xml</relativePath>
     </parent>
 
     <artifactId>petstore-security</artifactId>
@@ -31,6 +31,15 @@
     <name>Sample: [Pet Store] - Pet store microservices example - security microservice</name>
 
     <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.msf4j</groupId>
+            <artifactId>msf4j-analytics</artifactId>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -48,10 +57,16 @@
         <dependency>
             <groupId>org.apache.ws.commons.axiom</groupId>
             <artifactId>axiom-impl</artifactId>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>org.wso2.carbon.identity</groupId>
-            <artifactId>org.wso2.carbon.ldap.server</artifactId> 
+            <artifactId>org.wso2.carbon.ldap.server</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>bouncycastle</groupId>
+                    <artifactId>bcprov-jdk15</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

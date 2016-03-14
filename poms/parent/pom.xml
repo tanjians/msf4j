@@ -59,6 +59,11 @@
                 <artifactId>wagon-ssh</artifactId>
                 <version>${maven.wagon.ssh.version}</version>
             </extension>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>${maven.archetype.version}</version>
+            </extension>
         </extensions>
         <pluginManagement>
             <plugins>
@@ -168,6 +173,11 @@
                     <artifactId>maven-gpg-plugin</artifactId>
                     <version>${maven.gpgplugin.version}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>${maven.archetype.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -187,18 +197,27 @@
             </dependency>
             <dependency>
                 <groupId>org.wso2.msf4j</groupId>
+                <artifactId>msf4j-all</artifactId>
+                <version>${msf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.msf4j</groupId>
                 <artifactId>msf4j-core</artifactId>
                 <version>${msf4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.msf4j</groupId>
-                <artifactId>org.wso2.msf4j.feature</artifactId>
+                <artifactId>msf4j-analytics</artifactId>
                 <version>${msf4j.version}</version>
-                <type>zip</type>
             </dependency>
             <dependency>
                 <groupId>org.wso2.msf4j</groupId>
-                <artifactId>org.wso2.carbon.spi.fly.feature</artifactId>
+                <artifactId>jaxrs-delegates</artifactId>
+                <version>${msf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.msf4j</groupId>
+                <artifactId>org.wso2.msf4j.feature</artifactId>
                 <version>${msf4j.version}</version>
                 <type>zip</type>
             </dependency>
@@ -334,6 +353,10 @@
                         <groupId>org.eclipse.osgi</groupId>
                         <artifactId>org.eclipse.osgi</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.eclipse.osgi</groupId>
+                        <artifactId>org.eclipse.osgi.services</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
@@ -436,6 +459,12 @@
             </dependency>
             <!-- Test dependencies -->
             <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
@@ -454,23 +483,6 @@
                 <scope>test</scope>
             </dependency>
 
-            <!--SPI-fly dependencies-->
-            <dependency>
-                <groupId>org.apache.aries.spifly</groupId>
-                <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
-                <version>${aries.spifly.dynamic.bundle.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.aries</groupId>
-                <artifactId>org.apache.aries.util</artifactId>
-                <version>${aries.util.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm-all</artifactId>
-                <version>${asm.all.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -487,6 +499,7 @@
         <maven.jacocoplugin.version>0.7.1.201405082137</maven.jacocoplugin.version>
         <maven.sourceplugin.version>2.2.1</maven.sourceplugin.version>
         <maven.gpgplugin.version>1.5</maven.gpgplugin.version>
+        <maven.archetype.version>2.4</maven.archetype.version>
 
         <!-- Dependencies -->
         <carbon.kernel.version>5.0.0</carbon.kernel.version>
@@ -527,10 +540,6 @@
         <logback.version>1.0.9</logback.version>
         <nimbus.jose.jwt.version>2.25</nimbus.jose.jwt.version>
         <axiom.impl.version>1.2.11</axiom.impl.version>
-
-        <aries.spifly.dynamic.bundle.version>1.0.8</aries.spifly.dynamic.bundle.version>
-        <aries.util.version>1.1.1</aries.util.version>
-        <asm.all.version>5.0.4</asm.all.version>
 
         <osgi.framework.import.version.range>[1.8.0, 2.0.0)</osgi.framework.import.version.range>
         <osgi.service.tracker.import.version.range>[1.5.1, 2.0.0)</osgi.service.tracker.import.version.range>
